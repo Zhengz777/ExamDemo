@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 /*
  *类名和方法不能修改
@@ -202,6 +204,22 @@ public class Schedule {
 		for (int consumptionTemp : sortConsumption)
 		{
 			list3.add(consumptionTemp);
+		}
+		
+		Map<Integer, Integer> tempMap = new HashMap<Integer, Integer>();
+		for (Entry<Integer, Integer> vo : taskWaitMap.entrySet())
+		{
+			tempMap.put(vo.getValue(), vo.getKey());
+		}
+		
+		for (int i : list1) {
+			mapResult.put(1, tempMap.get(i));
+		}
+		for (int i : list2) {
+			mapResult.put(6, tempMap.get(i));
+		}
+		for (int i : list3) {
+			mapResult.put(7, tempMap.get(i));
 		}
 		
 		return mapResult;
